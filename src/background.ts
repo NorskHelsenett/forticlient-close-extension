@@ -6,26 +6,20 @@ function checkAndCloseTab(tab: chrome.tabs.Tab): void {
     setTimeout(() => {
       chrome.tabs
         .remove(tab.id ? tab.id : -1)
+        .catch((error) => console.error(error))
         .then(() => {
           console.log(`tab closed with title ${tab?.title} url ${tab?.url}`);
         });
-    }, 1000);
+    }, 100);
   } else {
     console.log(`tab not closed, url ${tab.url}, pendingUrl ${tab.pendingUrl}`);
   }
 }
 
-chrome.tabs.onCreated.addListener((tab) => {
-  if (
-    tab.url?.startsWith("chrome://") ||
-    tab.url?.startsWith("chrome-extension://")
-  ) {
-    return undefined;
-  }
-  checkAndCloseTab(tab);
-});
-
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.status !== "complete") {
+    return;
+  }
   chrome.tabs.query(
     {
       url: ["http://localhost:8020/*", "http://127.0.0.1:8020/*"],
