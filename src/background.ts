@@ -3,14 +3,12 @@ function checkAndCloseTab(tab: chrome.tabs.Tab): void {
     tab?.pendingUrl?.indexOf("http://localhost:8020") !== -1 ||
     tab?.pendingUrl?.indexOf("http://127.0.0.1:8020") !== -1
   ) {
-    setTimeout(() => {
       chrome.tabs
         .remove(tab.id ? tab.id : -1)
         .catch((error) => console.error(error))
         .then(() => {
           console.log(`tab closed with title ${tab?.title} url ${tab?.url}`);
         });
-    }, 100);
   } else {
     console.log(`tab not closed, url ${tab.url}, pendingUrl ${tab.pendingUrl}`);
   }
