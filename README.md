@@ -16,7 +16,7 @@ Extension for automagically closing forticlient callback tab for chrome (and Ope
 - Activate developer mode
 - Click on "Load unpacked"
     - Navigate to ```<repo root>/dist```
-    - "Select folder" / "Velg katalog"
+    - "Select folder" / "Velg mappe"
 - volia, you have installed the extension
 
 # Forticlient webpage mock
