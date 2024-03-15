@@ -1,5 +1,5 @@
-# forticlient-close-extension
-Extension for automagically closing forticlient callback tab
+# forticlient-close-extension-chrome
+Extension for automagically closing forticlient callback tab for chrome (and Opera, and Edge)
 
 # Prerequisites
 - Node LTS

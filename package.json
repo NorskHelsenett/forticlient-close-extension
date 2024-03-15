@@ -1,7 +1,7 @@
 {
-  "name": "nhn-dev-extension",
+  "name": "nhn-forticlient-close-extension-chrome",
   "version": "0.0.1",
-  "description": "NHN developers extension",
+  "description": "NHN forticlient close extension for chrome",
   "scripts": {
     "build": "webpack --config webpack/webpack.config.js",
     "build:watch": "webpack --config webpack/webpack.config.js --watch",
